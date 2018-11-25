@@ -1,0 +1,39 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{DDRA} \PYG{o}{\PYGZam{}=\PYGZti{}} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ENC\PYGZus{}A}\PYG{p}{);}		\PYG{c+c1}{// encoder pins as input}
+\PYG{n}{DDRA} \PYG{o}{\PYGZam{}=\PYGZti{}} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ENC\PYGZus{}B}\PYG{p}{);}		\PYG{c+c1}{//}
+\PYG{n}{PORTA} \PYG{o}{|=} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ENC\PYGZus{}B}\PYG{p}{)}		\PYG{c+c1}{// with pull\PYGZhy{}up enabled}
+		\PYG{o}{|}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ENC\PYGZus{}A}\PYG{p}{);}		\PYG{c+c1}{//}
+
+\PYG{k+kt}{uint8\PYGZus{}t} \PYG{n+nf}{readEncoder}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)}	\PYG{c+c1}{//reads the gray code from encoder}
+\PYG{p}{\PYGZob{}}
+ \PYG{k+kt}{uint8\PYGZus{}t} \PYG{n}{val}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+
+  \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{bit\PYGZus{}is\PYGZus{}clear}\PYG{p}{(}\PYG{n}{PINA}\PYG{p}{,} \PYG{n}{ENC\PYGZus{}B}\PYG{p}{))}
+	\PYG{n}{val} \PYG{o}{|=} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+
+  \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{bit\PYGZus{}is\PYGZus{}clear}\PYG{p}{(}\PYG{n}{PINA}\PYG{p}{,} \PYG{n}{ENC\PYGZus{}A}\PYG{p}{))}
+	\PYG{n}{val} \PYG{o}{|=} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{);}
+
+  \PYG{k}{return} \PYG{n}{val}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{readEncoderCounter} \PYG{p}{()}		\PYG{c+c1}{//monitoring encoder counter}
+\PYG{p}{\PYGZob{}}								\PYG{c+c1}{//increase or decrease}
+	\PYG{k+kt}{uint8\PYGZus{}t} \PYG{n}{val\PYGZus{}tmp} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n}{val\PYGZus{}tmp} \PYG{o}{=} \PYG{n}{readEncoder}\PYG{p}{();}
+
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{val} \PYG{o}{!=} \PYG{n}{val\PYGZus{}tmp}\PYG{p}{)}
+	\PYG{p}{\PYGZob{}}
+		\PYG{k}{if}\PYG{p}{((}\PYG{n}{val}\PYG{o}{==}\PYG{l+m+mi}{3} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{val\PYGZus{}tmp}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{))}
+			\PYG{p}{\PYGZob{}}
+			\PYG{n}{encoderCount} \PYG{o}{++}\PYG{p}{;}	\PYG{c+c1}{//clockwise turn}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{k}{else} \PYG{k}{if}\PYG{p}{((}\PYG{n}{val}\PYG{o}{==}\PYG{l+m+mi}{2} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{val\PYGZus{}tmp}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{))}
+			\PYG{p}{\PYGZob{}}
+			\PYG{n}{encoderCount} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}	\PYG{c+c1}{//counter\PYGZhy{}clockwise turn}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{n}{val} \PYG{o}{=} \PYG{n}{val\PYGZus{}tmp}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{n}{delay\PYGZus{}ms}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

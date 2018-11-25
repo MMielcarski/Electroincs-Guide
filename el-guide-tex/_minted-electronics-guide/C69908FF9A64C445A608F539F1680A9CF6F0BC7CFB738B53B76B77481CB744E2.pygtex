@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{blinkLed}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{on}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{off}\PYG{p}{)}	\PYG{c+c1}{// turn on the led for}
+\PYG{p}{\PYGZob{}}								\PYG{c+c1}{//\PYGZsq{}on\PYGZsq{} and off for \PYGZsq{}off\PYGZsq{} milisecondds}
+	\PYG{n}{PORTC} \PYG{o}{|=} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{LED}\PYG{p}{);}
+	\PYG{n}{delay\PYGZus{}ms}\PYG{p}{(}\PYG{n}{on}\PYG{p}{);}
+	\PYG{n}{PORTC} \PYG{o}{\PYGZam{}=} \PYG{o}{\PYGZti{}}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{LED}\PYG{p}{);}
+	\PYG{n}{delay\PYGZus{}ms}\PYG{p}{(}\PYG{n}{off}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

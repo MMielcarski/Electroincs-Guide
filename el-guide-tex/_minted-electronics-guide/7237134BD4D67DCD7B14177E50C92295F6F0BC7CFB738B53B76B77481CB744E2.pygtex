@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{const} \PYG{k+kt}{float} \PYG{n}{EMA\PYGZus{}a} \PYG{o}{=} \PYG{l+m+mf}{0.6}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{EMA} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{adc\PYGZus{}reading} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{adc\PYGZus{}prev\PYGZus{}reading} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{n}{adc\PYGZus{}prev\PYGZus{}reading} \PYG{o}{=} \PYG{n}{adc\PYGZus{}reading}\PYG{p}{;}
+\PYG{n}{adc\PYGZus{}reading} \PYG{o}{=} \PYG{n}{ADC\PYGZus{}read}\PYG{p}{(}\PYG{n}{channel}\PYG{p}{);}
+
+\PYG{n}{EMA} \PYG{o}{=} \PYG{p}{(}\PYG{n}{EMA\PYGZus{}a}\PYG{o}{*}\PYG{n}{adc\PYGZus{}reading}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{EMA\PYGZus{}a}\PYG{p}{)}\PYG{o}{*}\PYG{n}{adc\PYGZus{}prev\PYGZus{}reading}\PYG{p}{;}
+\end{Verbatim}

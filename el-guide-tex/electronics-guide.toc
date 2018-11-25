@@ -1,0 +1,36 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Atmel AVR}{1}
+\contentsline {subsection}{\numberline {2.1}ATmega models}{1}
+\contentsline {subsection}{\numberline {2.2}ATmega 8}{2}
+\contentsline {subsection}{\numberline {2.3}Atmega 32}{2}
+\contentsline {subsection}{\numberline {2.4}Atmega 328}{2}
+\contentsline {subsection}{\numberline {2.5}Zasilanie}{3}
+\contentsline {section}{\numberline {3}ADC}{4}
+\contentsline {subsection}{\numberline {3.1}Filtering Noise}{4}
+\contentsline {subsubsection}{\numberline {3.1.1}Proper power supply connection}{4}
+\contentsline {subsubsection}{\numberline {3.1.2}Lowering ADC resolution}{5}
+\contentsline {subsubsection}{\numberline {3.1.3}Averaging readings}{5}
+\contentsline {subsubsection}{\numberline {3.1.4}Exponential moving average (EMA)}{5}
+\contentsline {section}{\numberline {4}USART}{5}
+\contentsline {section}{\numberline {5}Git}{6}
+\contentsline {subsection}{\numberline {5.1}Creating local and remote repository}{6}
+\contentsline {subsection}{\numberline {5.2}Repository status}{6}
+\contentsline {subsection}{\numberline {5.3}Recovery}{7}
+\contentsline {subsection}{\numberline {5.4}Commit and push}{7}
+\contentsline {section}{\numberline {6}Makefile}{7}
+\contentsline {subsection}{\numberline {6.1}Szablony program\IeC {\'o}w}{7}
+\contentsline {subsubsection}{\numberline {6.1.1}Kod bazowy}{7}
+\contentsline {subsubsection}{\numberline {6.1.2}Obs\IeC {\l }uga przycisku monostabilnego}{7}
+\contentsline {subsubsection}{\numberline {6.1.3}migaj\IeC {\k a}ca dioda}{7}
+\contentsline {subsubsection}{\numberline {6.1.4}Obs\IeC {\l }uga enkodera obrotowego}{8}
+\contentsline {section}{\numberline {7}Pod\IeC {\l }\IeC {\k a}czenie element\IeC {\'o}w wykonawczych}{9}
+\contentsline {subsection}{\numberline {7.1}Eliminacja drga\IeC {\'n} styk\IeC {\'o}w - przycisk monostabilny}{9}
+\contentsline {section}{\numberline {8}Arduino}{9}
+\contentsline {subsection}{\numberline {8.1}Arduino UNO}{10}
+\contentsline {subsection}{\numberline {8.2}Obs\IeC {\l }uga bibliotek}{11}
+\contentsline {subsubsection}{\numberline {8.2.1}Podstawowe operacje na pinach}{11}
+\contentsline {section}{\numberline {9}MIDI}{12}
+\contentsline {subsection}{\numberline {9.1}Pod\IeC {\l }\IeC {\k a}czenie}{12}
+\contentsline {section}{\numberline {10}Konektory}{13}
+\contentsline {subsection}{\numberline {10.1}USB}{13}
+\contentsline {subsection}{\numberline {10.2}AVR-ISP}{13}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{adc\PYGZus{}10bit\PYGZus{}reading} \PYG{o}{=} \PYG{n}{ADC\PYGZus{}read}\PYG{p}{(}\PYG{n}{channel}\PYG{p}{);}
+\PYG{k+kt}{int} \PYG{n}{adc\PYGZus{}7bit\PYGZus{}reading} \PYG{o}{=} \PYG{p}{(}\PYG{n}{adc\PYGZus{}10bit\PYGZus{}reading}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{3}\PYG{p}{);}
+\end{Verbatim}

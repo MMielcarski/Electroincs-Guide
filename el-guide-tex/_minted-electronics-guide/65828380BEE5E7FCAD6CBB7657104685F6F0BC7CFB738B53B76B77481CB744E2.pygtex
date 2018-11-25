@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{uint16\PYGZus{}t} \PYG{n+nf}{ADC\PYGZus{}read}\PYG{p}{(}\PYG{k+kt}{uint8\PYGZus{}t} \PYG{n}{channel}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{n}{channel} \PYG{o}{\PYGZam{}=} \PYG{l+m+mh}{0x07}\PYG{p}{;}					\PYG{c+c1}{// AND operation with 7 (will keep channel between 0\PYGZhy{}7)}
+	\PYG{n}{ADMUX} \PYG{o}{=} \PYG{p}{(}\PYG{n}{ADMUX} \PYG{o}{\PYGZam{}} \PYG{l+m+mh}{0xF8}\PYG{p}{)} \PYG{o}{|} \PYG{n}{channel}\PYG{p}{;}	\PYG{c+c1}{// clears 3 first bits before OR}
+
+	\PYG{n}{ADCSRA} \PYG{o}{|=} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ADSC}\PYG{p}{);}				\PYG{c+c1}{// start single convesrion}
+	\PYG{k}{while}\PYG{p}{(}\PYG{n}{ADCSRA} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ADSC}\PYG{p}{));}		\PYG{c+c1}{// wait for conversion to complete}
+	\PYG{k}{return} \PYG{n}{ADCW}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

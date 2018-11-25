@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{adc\PYGZus{}sum} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{16}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+	\PYG{p}{\PYGZob{}}
+		\PYG{n}{adc\PYGZus{}sum} \PYG{o}{+=} \PYG{n}{ADC\PYGZus{}read}\PYG{p}{(}\PYG{n}{channel}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{int} \PYG{n}{adc\PYGZus{}reading} \PYG{o}{=} \PYG{n}{adc\PYGZus{}sum}\PYG{o}{/}\PYG{l+m+mi}{16}\PYG{p}{;}
+\end{Verbatim}

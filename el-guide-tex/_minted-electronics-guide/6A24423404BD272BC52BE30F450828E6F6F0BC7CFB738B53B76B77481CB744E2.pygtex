@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{uart\PYGZus{}putchar}\PYG{p}{(}\PYG{k+kt}{char} \PYG{n}{c}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{while} \PYG{p}{(} \PYG{o}{!}\PYG{p}{(}\PYG{n}{UCSR0A} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{UDRE0}\PYG{p}{))} \PYG{p}{)}	\PYG{c+c1}{// Wait for empty transmit buffer}
+	\PYG{p}{;}
+    \PYG{n}{UDR0} \PYG{o}{=} \PYG{n}{c}\PYG{p}{;}							\PYG{c+c1}{// Put data into buffer, sends the data}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{char} \PYG{n+nf}{uart\PYGZus{}getchar}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{loop\PYGZus{}until\PYGZus{}bit\PYGZus{}is\PYGZus{}set}\PYG{p}{(}\PYG{n}{UCSR0A}\PYG{p}{,} \PYG{n}{RXC0}\PYG{p}{);} 	\PYG{c+c1}{// Wait until data exists}
+    \PYG{k}{return} \PYG{n}{UDR0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{uart\PYGZus{}putstring}\PYG{p}{(}\PYG{k+kt}{char} \PYG{n}{tab}\PYG{p}{[])}
+\PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{while} \PYG{p}{((} \PYG{n}{UCSR0A} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{UDRE0}\PYG{p}{))}  \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}\PYGZcb{};}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{tab}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{!=} \PYG{l+m+mh}{0x00}\PYG{p}{)}
+		\PYG{p}{\PYGZob{}}
+            \PYG{n}{uart\PYGZus{}putchar}\PYG{p}{(}\PYG{n}{tab}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+			\PYG{n}{i}\PYG{o}{++}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{uart\PYGZus{}putint}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{value}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{char} \PYG{n}{tab}\PYG{p}{[}\PYG{l+m+mi}{16}\PYG{p}{];}
+	\PYG{n}{itoa}\PYG{p}{(}\PYG{n}{value}\PYG{p}{,}\PYG{n}{tab}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{);}
+	\PYG{n}{uart\PYGZus{}putstring}\PYG{p}{(}\PYG{n}{tab}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

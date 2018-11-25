@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{UBRR0H} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{p}{)(}\PYG{n}{ubrr}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{8}\PYG{p}{);}	\PYG{c+c1}{// set baud rate to 9600}
+\PYG{n}{UBRR0L} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{p}{)}\PYG{n}{ubrr}\PYG{p}{;}		\PYG{c+c1}{//}
+\PYG{n}{UCSR0B} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{RXEN0}\PYG{p}{)}\PYG{o}{|}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{TXEN0}\PYG{p}{);}		\PYG{c+c1}{// Enable receiver and transmitter}
+\PYG{n}{UCSR0C} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{USBS0}\PYG{p}{)}\PYG{o}{|}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{UCSZ00}\PYG{p}{);}		\PYG{c+c1}{// Set frame format: 8data, 2stop bit}
+\end{Verbatim}

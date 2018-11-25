@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n+nf}{isButton}\PYG{p}{()}				\PYG{c+c1}{//checks if encoder button is pressed}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{p}{(}\PYG{n}{PINA} \PYG{o}{\PYGZam{}} \PYG{l+m+mh}{0x08}\PYG{p}{))}
+		\PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+	\PYG{k}{else}
+		\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
